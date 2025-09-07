@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dream Travel — Explore Without Limits</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        
+    <link rel="stylesheet" href="originaltravel.css">
+</head>
+<body>
+
+    <section id="login" aria-label="Login overlay">
+        <video autoplay muted loop playsinline>
+            <source src="https://cdn.pixabay.com/video/2016/10/04/5859-186046082_large.mp4" type="video/mp4" />
+        </video>
+        <div class="login-card" data-aos="zoom-in">
+            <h2>Dream Travel</h2>
+            <p class="login-small">Log in to start planning your next adventure</p>
+            <div class="input"><span>👤</span><input id="email" type="email" placeholder="Email address" autocomplete="username" required /></div>
+            <div class="input"><span>🔒</span><input id="password" type="password" placeholder="Password" autocomplete="current-password" required /></div>
+            <div class="login-meta">
+                <label class="login-small"><input id="remember" type="checkbox" /> Remember me</label>
+                <a class="login-small" href="#" onclick="alert('Use your email & a demo password to continue.');return false;">Forgot password?</a>
+            </div>
+            <div style="margin-top:14px;display:flex;gap:10px">
+                <button class="btn" onclick="handleLogin()">Login</button>
+                <button class="btn" style="background:#111" onclick="demoFill()">Demo</button>
+            </div>
+            <p class="login-small" style="margin-top:12px">No account? <a href="#" onclick="alert('Sign-up flow is mocked for this demo.');return false;" style="color:#fff">Create one</a></p>
+        </div>
+    </section>
+
+    <div id="app" style="display:none">
+        <header>
+            <div class="container nav">
+                <div class="brand">
+                    <div class="logo" aria-hidden="true"></div>
+                    <span>Dream Travel</span>
+                </div>
+                <nav>
+                    <div class="burger" id="burger" aria-label="Open menu" aria-expanded="false" role="button" tabindex="0">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="menu" id="menu">
+                        <a href="#home" class="active">Home</a>
+                        <a href="#services">Services</a>
+                        <a href="#booking">Booking</a>
+                        <a href="#testimonials">Testimonials</a>
+                        <a href="#gallery">Gallery</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <section id="home" class="hero">
+            <video autoplay muted loop playsinline>
+                <source src="https://cdn.coverr.co/videos/coverr-paraglider-over-the-ocean-4597/1080p.mp4" type="video/mp4" />
+            </video>
+            <div class="hero-inner container" data-aos="fade-up">
+                <div class="kicker">Explore • Discover • Repeat</div>
+                <h1>Travel With No Limits</h1>
+                <p class="lead">Curated journeys, flexible budgets, and 24×7 support—crafted for explorers like you.</p>
+                <div class="cta">
+                    <a href="#booking" class="btn">Plan Your Trip</a>
+                    <a href="#services" class="btn secondary">See Services</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <h2 data-aos="fade-up">What We Offer</h2>
+                <p class="muted" style="color:var(--muted)" data-aos="fade-up" data-aos-delay="80">
+                    From beaches to mountain peaks—handpicked stays, seamless logistics, and local gems.
+                </p>
+                <div class="grid" style="margin-top:18px">
+                    <article class="card" data-aos="zoom-in">
+                        <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1600&auto=format&fit=crop" alt="Tropical beach" />
+                        <div class="pad">
+                            <span class="badge">🏝️ Beach Escapes</span>
+                            <h3>Sun & Sand</h3>
+                            <p>All-inclusive beach packages with ocean-view stays and curated water activities.</p>
+                        </div>
+                    </article>
+                    <article class="card" data-aos="zoom-in" data-aos-delay="60">
+                        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop" alt="Mountain range" />
+                        <div class="pad">
+                            <span class="badge">⛰️ Mountain Trails</span>
+                            <h3>Hike & Camp</h3>
+                            <p>Guided treks, cozy cabins, and sunrise viewpoints you’ll never forget.</p>
+                        </div>
+                    </article>
+                    <article class="card" data-aos="zoom-in" data-aos-delay="120">
+                        <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1600&auto=format&fit=crop" alt="City skyline" />
+                        <div class="pad">
+                            <span class="badge">🏙️ City Breaks</span>
+                            <h3>Culture & Cuisine</h3>
+                            <p>Weekend getaways with museums, food tours, and boutique stays downtown.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="section booking">
+            <div class="container">
+                <h2 data-aos="fade-up">Plan Your Trip</h2>
+                <p style="color:var(--muted)" data-aos="fade-up" data-aos-delay="70">Tell us your basics—we’ll tailor the perfect itinerary.</p>
+                <form id="bookForm" class="form" novalidate data-aos="fade-up" data-aos-delay="120">
+                    <div class="field">
+                        <label for="dest">Destination</label>
+                        <select id="dest" required>
+                            <option value="">Choose…</option>
+                            <option>Maldives</option>
+                            <option>Goa</option>
+                            <option>Dubai</option>
+                            <option>Swiss Alps</option>
+                            <option>Bali</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="start">Start Date</label>
+                        <input type="date" id="start" required />
+                    </div>
+                    <div class="field">
+                        <label for="end">End Date</label>
+                        <input type="date" id="end" required />
+                    </div>
+                    <div class="field">
+                        <label for="trav">Travellers</label>
+                        <input type="number" id="trav" min="1" value="2" required />
+                    </div>
+                    <div class="field">
+                        <label for="budget">Budget (₹)</label>
+                        <input type="number" id="budget" min="5000" step="500" placeholder="30000" />
+                    </div>
+                    <div class="field">
+                        <label for="email2">Contact Email</label>
+                        <input type="email" id="email2" placeholder="you@example.com" required />
+                    </div>
+                    <div class="field wide">
+                        <label for="notes">Special Requests</label>
+                        <textarea id="notes" placeholder="Hotel preferences, activities you love…"></textarea>
+                    </div>
+                    <div class="field">
+                        <button class="btn" type="submit">Get Custom Plan</button>
+                    </div>
+                </form>
+                <div id="toast" role="status" aria-live="polite"
+                     style="position:fixed;left:50%;transform:translateX(-50%);bottom:24px;display:none;background:#111;color:#fff;padding:10px 14px;border-radius:10px;z-index:1500">
+                    ✅ Request received! We’ll email a custom plan shortly.
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section testimonials">
+            <div class="container">
+                <h2 data-aos="fade-up">Happy Travelers</h2>
+                <div class="track" id="track" data-aos="fade-up" data-aos-delay="80" aria-label="Testimonials">
+                    <figure class="quote">
+                        <figcaption>Priya • Goa</figcaption>
+                        <p>“Seamless from pickup to hotel check-in. Scuba was the highlight!”</p>
+                        <div class="stars">★★★★★</div>
+                    </figure>
+                    <figure class="quote">
+                        <figcaption>Rahul • Swiss Alps</figcaption>
+                        <p>“They nailed our itinerary—views, trains, and cozy chalets.”</p>
+                        <div class="stars">★★★★★</div>
+                    </figure>
+                    <figure class="quote">
+                        <figcaption>Fatima • Dubai</figcaption>
+                        <p>“Desert safari + rooftop dinner = unforgettable.”</p>
+                        <div class="stars">★★★★☆</div>
+                    </figure>
+                    <figure class="quote">
+                        <figcaption>Ananya • Bali</figcaption>
+                        <p>“Private villa and surfing lessons—perfect anniversary trip.”</p>
+                        <div class="stars">★★★★★</div>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section gallery">
+            <div class="container">
+                <h2 data-aos="fade-up">Trip Moments</h2>
+                <div class="masonry" data-aos="fade-up" data-aos-delay="80">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop" alt="Turquoise ocean" />
+                    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1600&auto=format&fit=crop" alt="Desert safari" />
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop" alt="City night lights" />
+                    <img src="https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=80&w=1600&auto=format&fit=crop" alt="Swiss mountains" />
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop" alt="Bali rice terraces" />
+                    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1600&auto=format&fit=crop" alt="Ancient streets" />
+                </div>
+                <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+                    <img id="lightboxImg" alt="Expanded view" />
+                    <button class="close" onclick="closeLightbox()">Close ✕</button>
+                </div>
+            </section>
+
+        <footer id="contact" class="section">
+            <div class="container footer-grid">
+                <div class="footer-col">
+                    <h3>Dream Travel</h3>
+                    <p>We craft journeys that feel effortless—and unforgettable.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Reach Us</h4>
+                    <p>hello@dreamtravel.example</p>
+                    <p>+91 90000 12345</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow</h4>
+                    <p><a href="#">Instagram</a> • <a href="#">Facebook</a> • <a href="#">YouTube</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <p><a href="#">Terms</a> • <a href="#">Privacy</a> • <a href="#">Refunds</a></p>
+                </div>
+            </div>
+            <div class="container" style="text-align:center;margin-top:18px;color:#94a3b8">
+                © 2025 Dream Travel. All rights reserved.
+            </div>
+        </footer>
+
+        <div class="fabs">
+            <button class="fab" title="Book Now" onclick="document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">🛫</button>
+            <button class="fab" id="toTop" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 900, once: true });
+
+        function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+        function handleLogin() {
+            const email = document.getElementById('email').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            if (!validEmail(email)) return alert('Enter a valid email address');
+            if (pass.length < 4) return alert('Password must be at least 4 characters');
+            
+            const overlay = document.getElementById('login');
+            overlay.classList.add('fade-out');
+            setTimeout(() => { 
+                overlay.style.display = 'none'; 
+                document.getElementById('app').style.display = 'block'; 
+            }, 600);
+        }
+
+        function demoFill() {
+            document.getElementById('email').value = 'demo@dreamtravel.com';
+            document.getElementById('password').value = 'demo1234';
+        }
+
+        const burger = document.getElementById('burger');
+        const menu = document.getElementById('menu');
+
+        burger?.addEventListener('click', () => {
+            const isExpanded = burger.getAttribute('aria-expanded') === 'true' || false;
+            burger.setAttribute('aria-expanded', !isExpanded);
+            menu.classList.toggle('active');
+        });
+
+        const links = [...document.querySelectorAll('.menu a')];
+        const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+                }
+            });
+        }, { threshold: 0.6 });
+        sections.forEach(s => observer.observe(s));
+
+        const form = document.getElementById('bookForm');
+        const toast = document.getElementById('toast');
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const dest = document.getElementById('dest').value;
+            const s = document.getElementById('start').value;
+            const en = document.getElementById('end').value;
+            const t = +document.getElementById('trav').value || 0;
+            const em = document.getElementById('email2').value.trim();
+
+            if (!dest || !s || !en || !t || !validEmail(em)) {
+                alert('Please fill all required fields with valid values.');
+                return;
+            }
+            if (new Date(s) > new Date(en)) { alert('End date must be after start date.'); return; }
+
+            toast.style.display = 'block';
+            setTimeout(() => toast.style.display = 'none', 2600);
+            form.reset();
+        });
+
+        const track = document.getElementById('track');
+        let auto = setInterval(() => { 
+            track.scrollBy({ left: 300, behavior: 'smooth' }); 
+            if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 2) { 
+                track.scrollTo({ left: 0, behavior: 'smooth' }); 
+            }
+        }, 2800);
+        track.addEventListener('mouseenter', () => clearInterval(auto));
+        track.addEventListener('mouseleave', () => auto = setInterval(() => { 
+            track.scrollBy({ left: 300, behavior: 'smooth' });
+            if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 2) { 
+                track.scrollTo({ left: 0, behavior: 'smooth' }); 
+            }
+        }, 2800));
+
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightboxImg');
+        document.querySelectorAll('.gallery .masonry img').forEach(img => {
+            img.addEventListener('click', () => { lbImg.src = img.src; lb.classList.add('visible'); });
+        });
+        function closeLightbox() { lb.classList.remove('visible'); }
+        lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+        const toTop = document.getElementById('toTop');
+        window.addEventListener('scroll', () => {
+            toTop.style.display = window.scrollY > 600 ? 'grid' : 'none';
+        });
+    </script>
+</body>
+</html>
